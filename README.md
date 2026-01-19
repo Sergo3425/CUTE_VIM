@@ -1,1 +1,1 @@
-This is my config for VIM.
+Config for VIM
