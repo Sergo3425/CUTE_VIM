@@ -1,3 +1,3 @@
 Config for VIM
 
-![.vimrc] (~/vimrc.png)
+![.vimrc] (https://github.com/Sergo3425/CUTE_VIM/blob/main/.vimrc)
