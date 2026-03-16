@@ -158,10 +158,7 @@ nnoremap <c-f> :ClangFormat<CR>
 
 nnoremap <Space>n :tabnew<CR>
 nnoremap <Space>c :tabclose<CR>
-nnoremap <Space>i :tabnext<CR>
-nnoremap <Space>o :tabprevious<CR>
-
-nnoremap <Space>r :set relativenumber<CR>
-nnoremap <Space>R :set norelativenumber<CR>
+nnoremap <Space>o :tabnext<CR>
+nnoremap <Space>i :tabprevious<CR>
 
 nnoremap <Space>f :noh<CR>
