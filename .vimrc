@@ -10,7 +10,13 @@ set termguicolors
 
 let ayucolor="dark"
 
-colorscheme sorbet
+colorscheme catppuccin 
+
+augroup TransparentBg
+  autocmd!
+  autocmd ColorScheme * hi Normal ctermbg=none guibg=NONE
+augroup END
+
 
 call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -33,20 +39,41 @@ call plug#end()
 " ============================================================
 " ===========================STARTIFY=========================
 " ============================================================
-let g:startify_custom_header = [
-			\'                                               __                ',
-			\'   _____   __  __  _______ _____       __  __ /\_\    ___ ___    ',
-			\'  /\  __\ /\ \/\ \/\__  __\\  _ \     /\ \/\ \\/\ \  / __` __`\  ',
-			\'  \ \ \___\ \ \_\ \/_/\ \_/ \ \\/_    \ \ \_\ \\ \ \/\ \/\ \/\ \ ',
-            \'   \ \____\\ \_____\ \ \_\ \ \____\    \ \____/ \ \_\ \_\ \_\ \_\',
-            \'    \/____/ \/_____/  \/_/  \/____/     \/___/   \/_/\/_/\/_/\/_/',
-            \'                            WELCOME TO CUTE VIM',
-			\]
+let g:startify_custom_header = startify#center([
+            \' ',
+            \' ',
+			\'  ╔═══════════════════════════════════════════════════════════════════════════╗',
+			\'   ║                                                  __                     ║',
+			\'   ║      _____   __  __  _______ _____       __  __ /\_\    ___ ___         ║',
+			\'   ║     /\  __\ /\ \/\ \/\__  __\\  _ \     /\ \/\ \\/\ \  / __` __`\       ║',
+			\'   ║     \ \ \___\ \ \_\ \/_/\ \_/ \ \\/_    \ \ \_\ \\ \ \/\ \/\ \/\ \      ║',
+            \'   ║      \ \____\\ \_____\ \ \_\ \ \____\    \ \____/ \ \_\ \_\ \_\ \_\     ║',
+            \'   ║       \/____/ \/_____/  \/_/  \/____/     \/___/   \/_/\/_/\/_/\/_/     ║',
+            \'   ║                                                                         ║ ',
+            \'  ╚═══════════════════════════════════════════════════════════════════════════╝',
+            \])
+
+function! s:gitModified()
+    let files = systemlist('git ls-files -m 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+function! s:gitUntracked()
+    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+
+let g:startify_bookmarks = [
+  \ { '             c': '~/.vimrc' },
+  \ { 'g': '~/my_project/src/main.go' },
+  \ { 'd': '~/Documents/' },
+  \ ]
 
 let g:startify_session_autoload = 1
-let g:startify_bookmarks = [
-      \ { 'i': '~/.vimrc' },
-      \ { 't': '~/projects' }
+"let g:startify_bookmarks = [
+      \ {                'i': '~/.vimrc' },
+      \ {                't': '~/projects' }
       \]
 
 syntax on
