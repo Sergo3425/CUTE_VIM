@@ -9,7 +9,7 @@ cd CUTE_VIM
 sudo chmod +x install-cute-vim.sh
 ./install-cute-vim.sh
 ```
-ommands
+Commands
 --------
 
 | Command                | List                                                                                  |
