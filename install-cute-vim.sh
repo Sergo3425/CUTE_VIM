@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-REPO_URL="https://github.com/Sergo3425/CUTE_VIM.git"
+REPO_URL="https://github.com/lastconfig/CUTE_VIM.git"
 BRANCH="main"                                     
 DIR="$HOME/CUTE_VIM"
 CLONE_DIR="$HOME/.vim_config_backup"
 
-package_managers=("apt" "yum" "dnf" "zypper" "pacman" "snap" "flatpak")
+package_managers=("apt" "yum" "dnf" "pacman")
 package=("git" "npm" "vim")
 
 if ! command -v git >/dev/null 2>&1; then 
